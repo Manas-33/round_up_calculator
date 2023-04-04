@@ -3,8 +3,8 @@ import 'package:provider/provider.dart';
 
 import '../controllers/signin_provider.dart';
 
-class ProfilePage extends StatelessWidget {
-  const ProfilePage({super.key});
+class LogOutPage extends StatelessWidget {
+  const LogOutPage({super.key});
 
   @override
   Widget build(BuildContext context) {

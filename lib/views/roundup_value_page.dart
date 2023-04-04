@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:round_up_calculator/views/form.dart';
+import 'package:round_up_calculator/views/transaction_form.dart';
 
 import '../constants.dart';
 import '../controllers/transaction_provider.dart';

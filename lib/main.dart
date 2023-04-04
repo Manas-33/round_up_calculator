@@ -5,9 +5,9 @@ import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 import 'package:round_up_calculator/controllers/signin_provider.dart';
 import 'package:round_up_calculator/controllers/transaction_provider.dart';
-import 'package:round_up_calculator/views/form.dart';
+// import 'package:round_up_calculator/views/transaction_form.dart';
 import 'package:round_up_calculator/views/home_page.dart';
-import 'package:round_up_calculator/views/roundup_page.dart';
+import 'package:round_up_calculator/views/roundup_value_page.dart';
 import 'package:round_up_calculator/views/signin_page.dart';
 
 import 'constants.dart';
