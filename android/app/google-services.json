@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "522948046916",
+    "project_id": "round-up-calculator",
+    "storage_bucket": "round-up-calculator.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:522948046916:android:9be65a994724705b640c11",
+        "android_client_info": {
+          "package_name": "com.example.round_up_calculator"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "522948046916-8jptv5st3q6ia2e3qpbudv55iu5t1rio.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBVpCdhB0BWErj0R-XyzIXqKNksRuUiGmE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "522948046916-8jptv5st3q6ia2e3qpbudv55iu5t1rio.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
