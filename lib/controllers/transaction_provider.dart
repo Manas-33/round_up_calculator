@@ -86,14 +86,23 @@ class TransactionProvider extends ChangeNotifier {
     try {
       int totalRoundUp = 0;
       var uid = fireAuth.currentUser!.uid;
-      QuerySnapshot snapshot = await firestore
-          .collection('allTransactions')
-          .doc(uid)
-          .collection('transactionHistory')
-          .get();
-      List<DocumentSnapshot> docs = snapshot.docs;
-      for (var doc in docs) {
-        totalRoundUp += doc['roundUp'] as int;
+      for (var i = 1; i <= 12; i++) {
+        var allDocsMonth = await firestore
+            .collection('transactions')
+            .doc(uid)
+            .collection('$i')
+            .get();
+        int len = allDocsMonth.docs.length;
+        if (len != 0) {
+          QuerySnapshot snapshot = await firestore
+              .collection('transactions')
+              .doc(uid)
+              .collection('$i')
+              .get();
+          for(var doc in snapshot.docs){
+            totalRoundUp += doc['roundUp'] as int;
+          }
+        }
       }
       return totalRoundUp;
     } catch (e) {
@@ -102,19 +111,66 @@ class TransactionProvider extends ChangeNotifier {
     }
   }
 
+
   getTransactions() async {
     try {
       var uid = fireAuth.currentUser!.uid;
-      QuerySnapshot snapshot = await firestore
-          .collection('allTransactions')
-          .doc(uid)
-          .collection('transactionHistory')
-          .orderBy('timeOfTransaction', descending: true)
-          .get();
-      List<DocumentSnapshot> docs = snapshot.docs;
+      List<DocumentSnapshot> docs = [];
+      for (var i = 1; i <= 12; i++) {
+        var allDocsMonth = await firestore
+            .collection('transactions')
+            .doc(uid)
+            .collection('$i')
+            .get();
+        int len = allDocsMonth.docs.length;
+        if (len != 0) {
+          QuerySnapshot snapshot = await firestore
+              .collection('transactions')
+              .doc(uid)
+              .collection('$i')
+              .orderBy('timeOfTransaction', descending: true)
+              .get();
+          docs.addAll(snapshot.docs);
+        }
+      }
       return docs;
     } catch (e) {
       Get.snackbar("Error", "Error! ${e.toString()}");
     }
   }
+
+  // Future<int> getTotal() async {
+  //   try {
+  //     int totalRoundUp = 0;
+  //     var uid = fireAuth.currentUser!.uid;
+  //     QuerySnapshot snapshot = await firestore
+  //         .collection('allTransactions')
+  //         .doc(uid)
+  //         .collection('transactionHistory')
+  //         .get();
+  //     List<DocumentSnapshot> docs = snapshot.docs;
+  //     for (var doc in docs) {
+  //       totalRoundUp += doc['roundUp'] as int;
+  //     }
+  //     return totalRoundUp;
+  //   } catch (e) {
+  //     Get.snackbar("Error", "Error! ${e.toString()}");
+  //     return 0;
+  //   }
+  // }
+  // getTransactions() async {
+  //   try {
+  //     var uid = fireAuth.currentUser!.uid;
+  //     QuerySnapshot snapshot = await firestore
+  //         .collection('allTransactions')
+  //         .doc(uid)
+  //         .collection('transactionHistory')
+  //         .orderBy('timeOfTransaction', descending: true)
+  //         .get();
+  //     List<DocumentSnapshot> docs = snapshot.docs;
+  //     return docs;
+  //   } catch (e) {
+  //     Get.snackbar("Error", "Error! ${e.toString()}");
+  //   }
+  // }
 }

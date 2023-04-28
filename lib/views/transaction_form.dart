@@ -1,9 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:provider/provider.dart';
-
 import 'package:round_up_calculator/constants.dart';
 import 'package:round_up_calculator/controllers/transaction_provider.dart';
 
@@ -43,7 +40,7 @@ class _TransactionFormState extends State<TransactionForm> {
     }
   }
 
-  _roundUp(int roundUpValue, int amount) {
+  _roundUp(int roundUpValue, int amount) {    
     try {
       int roundedNumber =
           ((amount + roundUpValue - 1) ~/ roundUpValue) * roundUpValue;
@@ -141,11 +138,11 @@ class _TransactionFormState extends State<TransactionForm> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Text('Investment is : ', style: TextStyle(fontSize: 20)),
+                    const Text('Investment is : ', style: TextStyle(fontSize: 20)),
                     if (_amountController.text != "")
                       Text(
                           '₹${_roundUp(widget.roundUpValue, int.parse(_amountController.text))}',
-                          style: TextStyle(fontSize: 20, color: Colors.green))
+                          style: const TextStyle(fontSize: 20, color: Colors.green))
                   ],
                 ),
                 const SizedBox(

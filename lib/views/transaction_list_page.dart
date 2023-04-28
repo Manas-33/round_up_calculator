@@ -1,4 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:round_up_calculator/constants.dart';
@@ -52,10 +51,10 @@ class _TransactionListPageState extends State<TransactionListPage> {
                                       Text(snapshot.data![index]['type'] ?? ""),
                                       Row(
                                         children: [
-                                          Text("Saved :  "),
+                                          const Text("Saved :  "),
                                           Text(
                                               "₹${snapshot.data![index]['roundUp']}",
-                                              style: TextStyle(
+                                              style: const TextStyle(
                                                   fontSize: 20,
                                                   color: Colors.green)),
                                         ],
@@ -70,10 +69,10 @@ class _TransactionListPageState extends State<TransactionListPage> {
                                     children: [
                                       Row(
                                         children: [
-                                          Text("Amount Spent : "),
+                                          const Text("Amount Spent : "),
                                           Text(
                                             "₹${snapshot.data![index]['amount']}",
-                                            style: TextStyle(color: Colors.blue),
+                                            style:const TextStyle(color: Colors.blue),
                                           )
                                         ],
                                       ),

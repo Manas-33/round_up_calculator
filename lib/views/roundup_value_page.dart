@@ -1,4 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:round_up_calculator/views/transaction_form.dart';
@@ -26,7 +25,7 @@ class _AddTransactionPageState extends State<AddTransactionPage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text("Total Money Invested : ", style: TextStyle(fontSize: 20)),
+              const Text("Total Money Invested : ", style: TextStyle(fontSize: 20)),
               const SizedBox(
                 height: 20,
               ),
@@ -38,10 +37,10 @@ class _AddTransactionPageState extends State<AddTransactionPage> {
                       if (snapshot.connectionState == ConnectionState.done) {
                         return Text(
                           '₹${snapshot.data}',
-                          style: TextStyle(color: Colors.green, fontSize: 50),
+                          style: const TextStyle(color: Colors.green, fontSize: 50),
                         );
                       } else {
-                        return CircularProgressIndicator();
+                        return const CircularProgressIndicator();
                       }
                     },
                   );
@@ -72,7 +71,7 @@ class _AddTransactionPageState extends State<AddTransactionPage> {
                       value: value,
                       child: Text(
                         '$value',
-                        style: TextStyle(fontSize: 20),
+                        style: const TextStyle(fontSize: 20),
                       ),
                     );
                   }).toList(),
@@ -87,7 +86,7 @@ class _AddTransactionPageState extends State<AddTransactionPage> {
                 height: 10,
               ),
               Text('Selected Round Up value is : $_selectedValue',
-                  style: TextStyle(fontSize: 20)),
+                  style: const TextStyle(fontSize: 20)),
               const SizedBox(height: 35),
               ElevatedButton(
                   style: ElevatedButton.styleFrom(

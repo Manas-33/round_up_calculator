@@ -1,13 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 import 'package:round_up_calculator/controllers/signin_provider.dart';
 import 'package:round_up_calculator/controllers/transaction_provider.dart';
-// import 'package:round_up_calculator/views/transaction_form.dart';
 import 'package:round_up_calculator/views/home_page.dart';
-import 'package:round_up_calculator/views/roundup_value_page.dart';
 import 'package:round_up_calculator/views/signin_page.dart';
 
 import 'constants.dart';
